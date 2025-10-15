@@ -56,14 +56,14 @@
 
 
 
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export default function Gallery() {
-  const [images] = useState([
-    "https://picsum.photos/id/237/200/300",
-    "https://picsum.photos/id/238/200/300",
-    "https://picsum.photos/id/239/200/300",
-  ])
+// export default function Gallery() {
+//   const [images] = useState([
+//     "https://picsum.photos/id/237/200/300",
+//     "https://picsum.photos/id/238/200/300",
+//     "https://picsum.photos/id/239/200/300",
+//   ])
 
 // return(
 //     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -81,32 +81,48 @@ export default function Gallery() {
   
 // }
 
-const toggleSelect = (url) => {
-  const images = {
+
+
+
+
+import { useState } from 'react';
+
+export default function SelectableGallery() {
+  const [selected, setSelected] = useState([]);
+
+  const images = [
+    "https://picsum.photos/id/237/200/300",
+    "https://picsum.photos/id/238/200/300",
+    "https://picsum.photos/id/239/200/300",
+  ];
+  
+  const toggleSelect = (url) => {
     const currentSelected = [...selected];
 
-    if (currentSelected.includes(url)){
-      const index  = currentSelect.index0f(url);
-      currentSelected.splice(index, 1)
+    if (currentSelected.includes(url)) {
+      const index = currentSelected.indexOf(url);
+      currentSelected.splice(index, 1);
     } else {
-      custoSelected.push(url);
+      currentSelected.push(url);
     }
+
     setSelected(currentSelected);
-  }
+  };
 
 
-  return(
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  return (
+    <div style={{ display: 'flex'}}>
       {images.map((url, index) =>(
-        <img key={index}
+        <img
+          key={index}
           src={url}
           alt={`photo ${index}`}
           onClick={() => toggleSelect(url)}
           style={{
             border: selected.includes(url) ? '5px solid blue' : 'none' 
           }}
-        />)
-      )}
+        />
+      ))}
       </div>
-    )
+    );
   }

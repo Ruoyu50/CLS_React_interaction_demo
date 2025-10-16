@@ -89,6 +89,12 @@ import { useState } from 'react';
 
 export default function SelectableGallery() {
   const [selected, setSelected] = useState([]);
+  // 4.1
+// const [selected, setSelected] = useState([
+//   "https://picsum.photos/id/239/200/300"
+// ]);
+
+
 
   const images = [
     "https://picsum.photos/id/237/200/300",
@@ -107,6 +113,13 @@ export default function SelectableGallery() {
     }
 
     setSelected(currentSelected);
+
+    // 4.2
+    // setSelected([url]); 
+    // 4.3
+    // setSelected([...images]);
+    // 4.4
+    // setSelected([]);
   };
 
 
